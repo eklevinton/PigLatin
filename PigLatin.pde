@@ -37,15 +37,22 @@ public class PigLatin {
   
 
     public String pigLatin(String sWord) {
-       if (sWord.length()> 0)
+       if (sWord.substring(0,2).equals("qu")) {
+          return sWord.substring(2) + "qu" + "ay";
+        }
+       else if (sWord.length()> 0)
          if (sWord.charAt(0) == 'a' || sWord.charAt(0) == 'e' || sWord.charAt(0) == 'i' || sWord.charAt(0) == 'o' || sWord.charAt(0) == 'u')
           return sWord + "way";
+      
       for (int i = 0; i < sWord.length(); i++)
         if (findFirstVowel(sWord) == i)
           return sWord.substring(i, sWord.length()) + sWord.substring(0,i) + "ay";
+      
       if (findFirstVowel(sWord)== -1){
         return sWord + "ay";
       }
+
+        
       else {
         return "ERROR!";
       }
